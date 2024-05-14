@@ -21,6 +21,7 @@ users within an organization to chat with each other in private or group convers
 * **Django Channels:** Enables WebSocket communication for real-time features.
 * **Django REST Framework:**  Build a powerful and flexible API.
 * **Redis:**  Message broker for Django Channels.
+* **Daphne**: Asynchronous Support for Web server.
 * **PostgreSQL (recommended):** Database for storing user data, messages, and other information (you can choose a
   different database if you prefer).
 
@@ -38,7 +39,7 @@ users within an organization to chat with each other in private or group convers
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/chat_application.git
+   git clone https://github.com/narendra-reddy-333/chat_app
    cd chat_application
 2. **Create a virtual environment (recommended):**
    ```bash
@@ -60,10 +61,9 @@ users within an organization to chat with each other in private or group convers
    ```bash
    python manage.py createsuperuser
 
-7. **Run the development server:**
+7. **Run the development server using Daphne**
    ```bash
-   python manage.py runserver
+   daphne chat_application.asgi:application -b 0.0.0.0 -p 8000
 8. **In another terminal, start the Django Channels worker:**
-
-```bash
-python manage.py runworker
+   ```bash
+   python manage.py runworker
